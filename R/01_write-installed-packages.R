@@ -8,8 +8,13 @@
 ##   * Version
 ##   * Priority
 ##   * Built
+library(tidyverse)
+library(here)
+inst_packages <- installed.packages() %>% as_tibble() %>% select(Package, LibPath, Version, Priority, Built)
 
 ## write it to data/installed-packages.csv
+write_csv(inst_packages,here("data", "installed-packages.csv"))
+
 ## YES overwrite the file that is there now
 ## that came from me (Jenny)
 ## it an example of what yours should look like
